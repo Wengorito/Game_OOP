@@ -11,13 +11,13 @@ namespace Magic_Destroyers.Assets.Characters
     {
         public Character(string name = "")
         {
-            Greet(this);
-
             Name = name;
+            Greet(this);
         }
 
         private string _name;
         private int _abilityPoints;
+        private string _faction;
         private int _healthPoins;
         private int _level;
         private dynamic _bodyArmor;
@@ -42,22 +42,29 @@ namespace Magic_Destroyers.Assets.Characters
             get { return _abilityPoints; }
             set
             {
-                _abilityPoints = value;
+                _abilityPoints = value > 0 ? value : 0; //zero or less -> 0
             }
         }
-        public string Faction { get; set; }
+        public string Faction 
+        {
+            get { return _faction; }
+            set
+            {
+                _faction = (String.Equals("Melee", value) || String.Equals("Spellcaster", value)) ? value : "";
+            }
+        }
         public int HealthPoints 
         {
             get { return _healthPoins; } 
             set
             {
-                _healthPoins = value;
+                _healthPoins = value > 0 ? value : 0;
             }
         }
         public int Level 
         { 
             get { return _level; }
-            set { _level = value; } 
+            set { _level = value > 0 ? value : 0; } 
         }
         public dynamic BodyArmor
         {

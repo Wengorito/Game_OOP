@@ -9,8 +9,11 @@ namespace Magic_Destroyers.Assets.Equipment
     abstract public class Armor
     {
         int _armorPoints;
-        public int ArmorPoints { get; set; }
-
+        public int ArmorPoints
+        {
+            get { return _armorPoints; }
+            set { _armorPoints = value > 0 ? value : 1; }
+        }
     }
     class Chainlink : Armor
     {

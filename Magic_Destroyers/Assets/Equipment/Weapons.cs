@@ -14,7 +14,7 @@ namespace Magic_Destroyers.Assets.Equipment
         public int Damage 
         { 
             get { return _damage; } 
-            internal set { _damage = value; }
+            internal set { _damage = value > 0 ? value : 1; }
         }
     }
     class Sword : Weapon

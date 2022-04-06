@@ -43,6 +43,8 @@ namespace Magic_Destroyers
                 Weapon = new Staff()
             };
 
+            Console.WriteLine($"Hi my name is {warrior1.Name} and I have {warrior1.HealthPoints} HP points hahaha");
+
             warrior1.Greet(mage1);
             mage1.Curse(warrior1);
             Console.WriteLine(neutralGuy.Name);

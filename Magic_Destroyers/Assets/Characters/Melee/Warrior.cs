@@ -10,6 +10,10 @@ namespace Magic_Destroyers.Assets.Characters.Melee
             Greet(this);
 
             AbilityPoints = 1;
+            Faction = "Melee";
+            HealthPoints = 100;
+            Level = 0;
+
         }
         //abilities
         public void Strike()
