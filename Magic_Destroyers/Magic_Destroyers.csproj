@@ -7,7 +7,7 @@
     <ProjectGuid>{EAEC4DAA-A603-49BA-A8BD-CC791823D705}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Magic_Destroyers</RootNamespace>
-    <AssemblyName>Magic Destroyers</AssemblyName>
+    <AssemblyName>Magic_Destroyers</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
