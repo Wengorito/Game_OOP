@@ -12,13 +12,19 @@ namespace Magic_Destroyers.Assets.Characters.Melee
         {
 
         }
+
+        public Assessin(string name, int level) : this(name, level, 0)
+        {
+
+        }
+
         public Assessin(string name, int level, int healthPoints)
         {
             Name = name;
             Level = level;
             HealthPoints = healthPoints;
         }
-        public Assessin(string name, int level) : this (name, 0, 0) { }
+
 
         public void Raze()
         {

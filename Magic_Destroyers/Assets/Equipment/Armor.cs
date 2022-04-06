@@ -8,7 +8,7 @@ namespace Magic_Destroyers.Assets.Equipment
 {
     abstract public class Armor
     {
-        int _armorPoints;
+        private int _armorPoints;
         public int ArmorPoints
         {
             get { return _armorPoints; }

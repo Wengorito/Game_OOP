@@ -13,12 +13,24 @@ namespace Magic_Destroyers.Assets.Characters.Melee
             Faction = "Melee";
             HealthPoints = 100;
             Level = 0;
+        }
+
+        public Warrior(string name, int level) : this(name, level, 0)
+        {
 
         }
+
+        public Warrior(string name, int level, int healthPoints)
+        {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
+        }
+
         //abilities
         public void Strike()
         {
-
+            throw new NotImplementedException();
         }
         public void Execute()
         {

@@ -40,7 +40,7 @@ namespace Magic_Destroyers.Assets.Characters
         public int AbilityPoints
         {
             get { return _abilityPoints; }
-            set
+            internal set
             {
                 _abilityPoints = value > 0 ? value : 0; //zero or less -> 0
             }

@@ -13,6 +13,18 @@ namespace Magic_Destroyers.Assets.Characters.Melee
 
         }
 
+        public Knight(string name, int level) : this(name, level, 0)
+        {
+
+        }
+
+        public Knight(string name, int level, int healthPoints)
+        {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
+        }
+
         //abilities
         public void HolyBlow()
         {
