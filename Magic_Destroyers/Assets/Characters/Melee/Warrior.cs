@@ -1,32 +1,13 @@
-﻿using System;
+﻿using Assets.Equipment;
+using Enumerations;
+using System;
 
-namespace Magic_Destroyers.Assets.Characters.Melee
+namespace Assets.Characters.Melee
 {
     public class Warrior : Character
     {
-        public Warrior(string name = "") : base(name)
-        {
-            base.Greet(this);
-            Greet(this);
-
-            AbilityPoints = 1;
-            Faction = "Melee";
-            HealthPoints = 100;
-            Level = 0;
-        }
-
-        public Warrior(string name, int level) : this(name, level, 0)
-        {
-
-        }
-
-        public Warrior(string name, int level, int healthPoints)
-        {
-            Name = name;
-            Level = level;
-            HealthPoints = healthPoints;
-        }
-
+        private readonly Weapon DEFAULT_WEAPON = new Axe();
+        private readonly Armor DEFAULT_ARMOR = new Chainlink();
         //abilities
         public void Strike()
         {
@@ -45,7 +26,28 @@ namespace Magic_Destroyers.Assets.Characters.Melee
             Console.WriteLine($"Elo {character.Name}, child member");
         }
 
+        public Warrior(string name, Faction faction = Faction.GoodGuy) : base(name, faction)
+        {
+            base.Greet(this);
+            Greet(this);
+        }
 
+        public Warrior() : this("Basic Warrior", DEFAULT_LEVEL)
+        {
+        }
+
+        public Warrior(string name, int level) : this(Faction.Default, name, level)
+        {
+        }
+
+        public Warrior(Faction faction, string name, int level) : base(name, faction)
+        {
+            this.Faction = faction;
+            this.Level = level;
+            this.AbilityPoints = DEFAULT_ABILITYPOINTS;
+            this.Weapon = DEFAULT_WEAPON;
+            this.BodyArmor = DEFAULT_ARMOR;
+        }
     }
 
 

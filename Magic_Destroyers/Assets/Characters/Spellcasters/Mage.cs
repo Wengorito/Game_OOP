@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Assets.Characters.Spellcasters
+namespace Assets.Characters.Spellcasters
 {
     class Mage : Character
     {

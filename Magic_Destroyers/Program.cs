@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Magic_Destroyers.Assets.Equipment;
-using Magic_Destroyers.Assets.Characters.Melee;
-using Magic_Destroyers.Assets.Characters.Spellcasters;
+using Assets.Equipment;
+using Assets.Characters.Melee;
+using Assets.Characters.Spellcasters;
+using Enumerations;
 
 namespace Magic_Destroyers
 {
@@ -13,9 +14,10 @@ namespace Magic_Destroyers
     {
         static void Main()
         {
-            Warrior warrior1 = new Warrior("Good Guy Greg");
-            warrior1.Weapon = new Axe();
-            warrior1.BodyArmor = new Chainlink();
+
+            Warrior warrior1 = new Warrior(Faction.BadGuy ,"Good Guy Greg", 1);
+            Warrior warrior2 = new Warrior("Todd", 5);
+            Warrior warrior3 = new Warrior();
 
             Knight knight1 = new Knight();
             knight1.Weapon = new Hammer();
@@ -53,8 +55,12 @@ namespace Magic_Destroyers
             warrior1.AbilityPoints *= 2;
             Console.WriteLine(warrior1.AbilityPoints);
 
-            Console.WriteLine($"{mage1.Weapon} damage points: {mage1.Weapon.Damage}");
+            Console.WriteLine($"{warrior1.Weapon} damage points: {warrior1.Weapon.Damage}");
             Console.WriteLine($"{neutralGuy.Weapon} damage points: {neutralGuy.Weapon.Damage}");
+
+            Console.WriteLine($"First character {warrior1.Name} HP: {warrior1.HealthPoints}\n" +
+                $"Second character {warrior2.Name} HP: {warrior2.HealthPoints}\n" +
+                $"Third character {warrior3.Name} HP: {warrior3.HealthPoints}\n");
 
             Console.WriteLine("Press any key...");
             Console.ReadKey();

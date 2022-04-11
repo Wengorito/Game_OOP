@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Assets.Characters.Melee
+namespace Assets.Characters.Melee
 {
     class Knight : Character
     {

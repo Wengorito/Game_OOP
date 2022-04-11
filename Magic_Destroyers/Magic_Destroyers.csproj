@@ -45,6 +45,8 @@
     <Compile Include="Assets\Characters\Spellcasters\Druid.cs" />
     <Compile Include="Assets\Characters\Spellcasters\Mage.cs" />
     <Compile Include="Assets\Characters\Spellcasters\Necromancer.cs" />
+    <Compile Include="PlayerInfo.cs" />
+    <Compile Include="Enumerations\Faction.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup />
