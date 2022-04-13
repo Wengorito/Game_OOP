@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Equipment;
-using Assets.Characters.Melee;
+using Assets.Characters.Melees;
 using Assets.Characters.Spellcasters;
 using Enumerations;
 
@@ -14,9 +14,8 @@ namespace Magic_Destroyers
     {
         static void Main()
         {
-
-            Warrior warrior1 = new Warrior(Faction.BadGuy ,"Good Guy Greg", 1);
-            Warrior warrior2 = new Warrior("Todd", 5);
+            Warrior warrior1 = new Warrior("Good Guy Greg", Faction.BadGuy, 1);
+            Warrior warrior2 = new Warrior("Todd", Faction.GoodGuy);
             Warrior warrior3 = new Warrior();
 
             Knight knight1 = new Knight();
@@ -61,6 +60,25 @@ namespace Magic_Destroyers
             Console.WriteLine($"First character {warrior1.Name} HP: {warrior1.HealthPoints}\n" +
                 $"Second character {warrior2.Name} HP: {warrior2.HealthPoints}\n" +
                 $"Third character {warrior3.Name} HP: {warrior3.HealthPoints}\n");
+
+            try
+            {
+                warrior1.Age = 18;
+                knight1.Age = 30;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine($"knight1 age: {knight1.Age}");
+            Console.WriteLine($"warrior1 age: {warrior1.Age}");
+
+            Console.WriteLine(warrior1.HealthPoints);
+            Console.WriteLine(warrior2.HealthPoints);
+            Console.WriteLine(warrior3.HealthPoints);
+
+            Console.WriteLine(necro1.Age);
 
             Console.WriteLine("Press any key...");
             Console.ReadKey();

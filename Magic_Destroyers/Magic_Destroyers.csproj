@@ -37,11 +37,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Characters\Character.cs" />
+    <Compile Include="Assets\Characters\Melees\Melee.cs" />
+    <Compile Include="Assets\Characters\Spellcasters\Spellcaster.cs" />
     <Compile Include="Assets\Equipment\Armor.cs" />
     <Compile Include="Assets\Equipment\Weapons.cs" />
-    <Compile Include="Assets\Characters\Melee\Knight.cs" />
-    <Compile Include="Assets\Characters\Melee\Assessin.cs" />
-    <Compile Include="Assets\Characters\Melee\Warrior.cs" />
+    <Compile Include="Assets\Characters\Melees\Knight.cs" />
+    <Compile Include="Assets\Characters\Melees\Assessin.cs" />
+    <Compile Include="Assets\Characters\Melees\Warrior.cs" />
     <Compile Include="Assets\Characters\Spellcasters\Druid.cs" />
     <Compile Include="Assets\Characters\Spellcasters\Mage.cs" />
     <Compile Include="Assets\Characters\Spellcasters\Necromancer.cs" />

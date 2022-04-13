@@ -3,19 +3,19 @@
     abstract public class Weapon
     {
         private int _damage;
-        //public int Damage => _damage;
-        //the above is equivalent of
+
         public int Damage 
         { 
             get { return _damage; } 
-            internal set { _damage = value > 0 ? value : 1; }
+            protected set { _damage = value > 0 ? value : 1; }
         }
     }
     class Sword : Weapon
     {
+        private const int DEFAULT_DAMAGE = 15;
         public Sword()
         {
-            Damage = 15;
+            Damage = DEFAULT_DAMAGE;
         }
         public void Bloodthirst()
         {
@@ -25,9 +25,11 @@
 
     class Axe : Weapon
     {
+        private const int DEFAULT_DAMAGE = 20;
+
         public Axe()
         {
-            Damage = 20;
+            Damage = DEFAULT_DAMAGE;
         }
         public void HackNSlash()
         {
@@ -37,9 +39,11 @@
     }
     class Hammer : Weapon
     {
+        private const int DEFAULT_DAMAGE = 10;
+
         public Hammer()
         {
-            Damage = 10;
+            Damage = DEFAULT_DAMAGE;
         }
         public void Stun()
         {
@@ -50,9 +54,11 @@
 
     class Staff : Weapon
     {
+        private const int DEFAULT_DAMAGE = 5;
+
         public Staff()
         {
-            Damage = 5;
+            Damage = DEFAULT_DAMAGE;
         }
         public void Empower()
         {

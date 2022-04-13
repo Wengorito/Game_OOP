@@ -1,15 +1,17 @@
 ﻿using Assets.Equipment;
 using Enumerations;
 using System;
+using System.Threading;
 
 namespace Assets.Characters
 {
     abstract public class Character
     {
-        public const int DEFAULT_ABILITYPOINTS = 100;
-        public const int DEFAULT_HEALTHPOINTS_BADGUY = 100;
-        public const int DEFAULT_HEALTHPOINTS_GOODGUY = 120;
-        public const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_ABILITYPOINTS = 100;
+        private const int DEFAULT_HEALTHPOINTS_BADGUY = 100;
+        private const int DEFAULT_HEALTHPOINTS_GOODGUY = 120;
+        protected const int MIN_AGE = 18;
+        protected const int DEFAULT_LEVEL = 1;
 
         private readonly int _id;
 
@@ -19,6 +21,7 @@ namespace Assets.Characters
         private int _abilityPoints;
         private int _healthPoins;
         private int _level;
+        private int _age;
         private Faction _faction;
         private Armor _bodyArmor;
         private Weapon _weapon;
@@ -74,6 +77,17 @@ namespace Assets.Characters
             get { return _level; }
             set { _level = value > 0 ? value : 0; } 
         }
+        public virtual int Age
+        {
+            get { return _age; }
+            set 
+            {
+                if (value >= MIN_AGE)
+                    _age = value;
+                else
+                    throw new ArgumentOutOfRangeException(string.Empty, $"Character's age must be greater than {MIN_AGE}");
+            }
+        }
         public Armor BodyArmor
         {
             get { return _bodyArmor; } 
@@ -85,16 +99,17 @@ namespace Assets.Characters
             set { _weapon = value; }
         }
 
-        //abilities
-        public void Greet(Character character)
+        public Character()
         {
-            Console.WriteLine($"Elo {character.Name} (myself), inhertied member");
+
         }
-        public Character(string name = "Noname", Faction faction = Faction.Default)
+        public Character(string name, Faction faction, int level)
         {
             _idCounter++;
             _id = _idCounter;
             _faction = faction;
+            _level = level;
+            _abilityPoints = DEFAULT_ABILITYPOINTS;
             if (faction == Faction.GoodGuy)
             {
                 _healthPoins = DEFAULT_HEALTHPOINTS_GOODGUY;
@@ -107,5 +122,21 @@ namespace Assets.Characters
             Name = name;
             Greet(this);
         }
+
+        //abilities
+        protected void Greet(Character character)
+        {
+            Console.WriteLine($"Elo {character.Name} (myself), inhertied member");
+        }
+
+        public virtual void Move(int pauseBetweenMoves)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("I am moving!");
+                Thread.Sleep(pauseBetweenMoves);
+            }
+        }
+
     }
 }
