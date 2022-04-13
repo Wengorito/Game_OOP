@@ -19,12 +19,12 @@ namespace Assets.Characters.Spellcasters
         }
         public override int Age
         {
-            get => base.Age;
+            get => base._age;
 
             set
             {
                 if (value > MIN_AGE && value < MAX_AGE)
-                    base.Age = value;
+                    base._age = value;
                 else
                     throw new ArgumentNullException(string.Empty, $"Druid's age must be between {MIN_AGE} and {MAX_AGE}");
             }

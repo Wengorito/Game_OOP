@@ -21,7 +21,7 @@ namespace Assets.Characters
         private int _abilityPoints;
         private int _healthPoins;
         private int _level;
-        private int _age;
+        protected int _age;
         private Faction _faction;
         private Armor _bodyArmor;
         private Weapon _weapon;

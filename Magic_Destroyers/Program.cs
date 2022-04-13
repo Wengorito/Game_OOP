@@ -78,7 +78,9 @@ namespace Magic_Destroyers
             Console.WriteLine(warrior2.HealthPoints);
             Console.WriteLine(warrior3.HealthPoints);
 
-            Console.WriteLine(necro1.Age);
+            Console.WriteLine(warrior1.BodyArmor);
+            warrior1.BodyArmor = new LightLeatherVest();
+            Console.WriteLine(warrior1.BodyArmor);
 
             Console.WriteLine("Press any key...");
             Console.ReadKey();

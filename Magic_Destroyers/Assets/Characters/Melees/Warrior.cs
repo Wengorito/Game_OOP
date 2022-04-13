@@ -14,12 +14,12 @@ namespace Assets.Characters.Melees
 
         public override int Age 
         { 
-            get => base.Age;
+            get => base._age;
 
             set
             {
                 if (value < MAX_AGE)
-                    base.Age = value;
+                    base._age = value;
                 else
                     throw new ArgumentNullException(string.Empty, $"Warrior's age must be between {MIN_AGE} and {MAX_AGE}");
             }
