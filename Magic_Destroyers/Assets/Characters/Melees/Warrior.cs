@@ -4,7 +4,7 @@ using System;
 
 namespace Assets.Characters.Melees
 {
-    class Warrior : Melee
+    public class Warrior : Melee
     {
         private const string DEFAULT_NAME = "Barb";
         private const int MAX_AGE = 30;
@@ -77,6 +77,18 @@ namespace Assets.Characters.Melees
         {
             base.Move(pauseBetweenMovements);
             Console.WriteLine("I just moved 10 times, I am a Warrior");
+        }
+
+        public override void Attack()
+        {
+        }
+
+        public override void SpecialAttack()
+        {
+        }
+
+        public override void Defend()
+        {
         }
     }
 

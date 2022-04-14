@@ -1,19 +1,15 @@
-﻿using Enumerations;
+﻿using Assets.Characters.Melees;
+using Assets.Equipment.Spells;
+using Enumerations;
+using Magic_Destroyers.Interfaces;
 using System;
 
 namespace Assets.Characters.Spellcasters
 {
-    abstract class Spellcaster : Character
+    abstract class Spellcaster : Character, ISpellcaster
     {
         private const int DEFAULT_HEALTHPOINTS = 100;
         protected const int MIN_AGE = 30;
-
-        private int _manaPoints;
-        public int ManaPoints 
-        {
-            get { return _manaPoints; } 
-            set { _manaPoints = value; }
-        }
 
         public override int Age
         {
@@ -28,9 +24,26 @@ namespace Assets.Characters.Spellcasters
             }
         }
 
+        public Spell MySpell 
+        { 
+            get;
+            set;
+        }
+        public int Mana
+        {
+            get;
+            set;
+        }
+
         public Spellcaster(string name, Faction faction, int level) : base(name, faction, level)
         {
             base.HealthPoints = DEFAULT_HEALTHPOINTS;
+        }
+
+        public void CastSpell(Melee character)
+        {
+            character.HealthPoints -= MySpell.Damage;
+            this.Mana -= MySpell.ManaCost;
         }
     }
 }

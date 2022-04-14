@@ -47,5 +47,20 @@ namespace Assets.Characters.Spellcasters
         {
             Console.WriteLine($"Damn you, {character.Name}!");
         }
+
+        public override void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SpecialAttack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Defend()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

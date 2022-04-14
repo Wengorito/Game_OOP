@@ -1,11 +1,12 @@
-﻿using Assets.Equipment;
+﻿using Assets.Characters.Interfaces; //jakim cudem to nie daje errora
+using Assets.Equipment;
 using Enumerations;
 using System;
 using System.Threading;
 
 namespace Assets.Characters
 {
-    abstract public class Character
+    abstract public class Character : IAttack, IDefend
     {
         private const int DEFAULT_ABILITYPOINTS = 100;
         private const int DEFAULT_HEALTHPOINTS_BADGUY = 100;
@@ -138,5 +139,8 @@ namespace Assets.Characters
             }
         }
 
+        public abstract void Attack();
+        public abstract void SpecialAttack();
+        public abstract void Defend();
     }
 }

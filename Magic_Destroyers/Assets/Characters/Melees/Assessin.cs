@@ -43,5 +43,20 @@ namespace Assets.Characters.Melees
         {
 
         }
+
+        public override void Attack()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void SpecialAttack()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Defend()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

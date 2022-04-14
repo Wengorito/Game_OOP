@@ -3,7 +3,7 @@ using System;
 
 namespace Assets.Characters.Melees
 {
-    abstract class Melee : Character
+    public abstract class Melee : Character
     {
         private const int DEFAULT_HEALTHPOINTS = 200;
         private const int MAX_AGE = 60;
