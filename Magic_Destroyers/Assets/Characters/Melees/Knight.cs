@@ -1,5 +1,7 @@
-﻿
-using Assets.Equipment;
+﻿using Assets.Equipment.Armors;
+using Assets.Equipment.Armors.Heavy;
+using Assets.Equipment.Weapons;
+using Assets.Equipment.Weapons.Blunt;
 using Enumerations;
 
 namespace Assets.Characters.Melees
@@ -8,10 +10,13 @@ namespace Assets.Characters.Melees
     {
         private const string DEFAULT_NAME = "Knajt";
 
-        private readonly Weapon DEFAULT_WEAPON = new Hammer();
-        private readonly Armor DEFAULT_ARMOR = new Chainlink();
+        private readonly Hammer DEFAULT_WEAPON = new Hammer();
+        private readonly Chainlink DEFAULT_ARMOR = new Chainlink();
 
-        public Knight(string name = DEFAULT_NAME) : this(name, Faction.GoodGuy)
+
+        public Hammer Weepone { get; set; }
+
+        public Knight(string name = DEFAULT_NAME) : this(name, Faction.Melee)
         {
 
         }
@@ -23,6 +28,7 @@ namespace Assets.Characters.Melees
 
         public Knight(string name, Faction faction, int level) : base(name, faction, level)
         {
+            this.Weepone = DEFAULT_WEAPON;
             this.Weapon = DEFAULT_WEAPON;
             this.BodyArmor = DEFAULT_ARMOR;
         }

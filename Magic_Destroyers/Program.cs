@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Equipment;
+using Assets.Characters;
 using Assets.Characters.Melees;
 using Assets.Characters.Spellcasters;
+using Assets.Equipment.Armors.Heavy;
+using Assets.Equipment.Armors.Leather;
+using Assets.Equipment.Armors.Light;
+using Assets.Equipment.Weapons.Blunt;
+using Assets.Equipment.Weapons.Sharp;
 using Enumerations;
 
 namespace Magic_Destroyers
@@ -14,8 +15,8 @@ namespace Magic_Destroyers
     {
         static void Main()
         {
-            Warrior warrior1 = new Warrior("Good Guy Greg", Faction.BadGuy, 1);
-            Warrior warrior2 = new Warrior("Todd", Faction.GoodGuy);
+            Warrior warrior1 = new Warrior("Good Guy Greg", Faction.Melee, 1);
+            Warrior warrior2 = new Warrior("Todd", Faction.Melee);
             Warrior warrior3 = new Warrior();
 
             Knight knight1 = new Knight();
@@ -54,8 +55,8 @@ namespace Magic_Destroyers
             warrior1.AbilityPoints *= 2;
             Console.WriteLine(warrior1.AbilityPoints);
 
-            Console.WriteLine($"{warrior1.Weapon} damage points: {warrior1.Weapon.Damage}");
-            Console.WriteLine($"{neutralGuy.Weapon} damage points: {neutralGuy.Weapon.Damage}");
+            Console.WriteLine($"{warrior1.Weapon} damage points: {warrior1.Weapon.DamagePoints}");
+            Console.WriteLine($"{neutralGuy.Weapon} damage points: {neutralGuy.Weapon.DamagePoints}");
 
             Console.WriteLine($"First character {warrior1.Name} HP: {warrior1.HealthPoints}\n" +
                 $"Second character {warrior2.Name} HP: {warrior2.HealthPoints}\n" +
@@ -81,6 +82,9 @@ namespace Magic_Destroyers
             Console.WriteLine(warrior1.BodyArmor);
             warrior1.BodyArmor = new LightLeatherVest();
             Console.WriteLine(warrior1.BodyArmor);
+
+            Console.WriteLine(knight1.Weapon);
+            Console.WriteLine(knight1.Weapon.DamagePoints);
 
             Console.WriteLine("Press any key...");
             Console.ReadKey();

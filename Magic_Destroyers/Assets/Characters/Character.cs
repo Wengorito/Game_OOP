@@ -1,5 +1,6 @@
 ﻿using Assets.Characters.Interfaces; //jakim cudem to nie daje errora
-using Assets.Equipment;
+using Assets.Equipment.Weapons;
+using Assets.Equipment.Armors;
 using Enumerations;
 using System;
 using System.Threading;
@@ -9,8 +10,8 @@ namespace Assets.Characters
     abstract public class Character : IAttack, IDefend
     {
         private const int DEFAULT_ABILITYPOINTS = 100;
-        private const int DEFAULT_HEALTHPOINTS_BADGUY = 100;
-        private const int DEFAULT_HEALTHPOINTS_GOODGUY = 120;
+        private const int DEFAULT_HEALTHPOINTS_SPELLCASTER = 100;
+        private const int DEFAULT_HEALTHPOINTS_MELEE = 120;
         protected const int MIN_AGE = 18;
         protected const int DEFAULT_LEVEL = 1;
 
@@ -111,13 +112,13 @@ namespace Assets.Characters
             _faction = faction;
             _level = level;
             _abilityPoints = DEFAULT_ABILITYPOINTS;
-            if (faction == Faction.GoodGuy)
+            if (faction == Faction.Melee)
             {
-                _healthPoins = DEFAULT_HEALTHPOINTS_GOODGUY;
+                _healthPoins = DEFAULT_HEALTHPOINTS_MELEE;
             }
-            else if (faction == Faction.BadGuy)
+            else if (faction == Faction.Spellcaster)
             {
-                _healthPoins = DEFAULT_HEALTHPOINTS_BADGUY;
+                _healthPoins = DEFAULT_HEALTHPOINTS_SPELLCASTER;
             }
 
             Name = name;

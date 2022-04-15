@@ -9,7 +9,7 @@ namespace Assets.Characters.Spellcasters
     abstract class Spellcaster : Character, ISpellcaster
     {
         private const int DEFAULT_HEALTHPOINTS = 100;
-        protected const int MIN_AGE = 30;
+        protected new const int MIN_AGE = 30;
 
         public override int Age
         {

@@ -2,8 +2,7 @@
 {
     public enum Faction
     {
-        Default,
-        GoodGuy,
-        BadGuy
+        Melee,
+        Spellcaster
     }
 }

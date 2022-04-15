@@ -1,5 +1,7 @@
 ﻿using System;
-using Assets.Equipment;
+using Assets.Equipment.Armors.Light;
+using Assets.Equipment.Weapons;
+using Assets.Equipment.Weapons.Blunt;
 using Enumerations;
 
 namespace Assets.Characters.Spellcasters
@@ -8,11 +10,11 @@ namespace Assets.Characters.Spellcasters
     {
         private const string DEFAULT_NAME = "Sorc";
         private const int MAX_AGE = 100;
-        private const int MIN_AGE = 40;
+        private new const int MIN_AGE = 40;
 
         private readonly Weapon DEFAULT_WEAPON = new Staff();
-        private readonly Armor DEFAULT_ARMOR = new ClothRobe();
-        public Mage (string name = DEFAULT_NAME) : base(name, Faction.GoodGuy, DEFAULT_LEVEL)
+        private readonly ClothRobe DEFAULT_ARMOR = new ClothRobe();
+        public Mage (string name = DEFAULT_NAME) : base(name, Faction.Spellcaster, DEFAULT_LEVEL)
         {
             this.Weapon = DEFAULT_WEAPON;
             this.BodyArmor = DEFAULT_ARMOR;

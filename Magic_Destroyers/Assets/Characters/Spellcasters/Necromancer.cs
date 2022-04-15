@@ -1,4 +1,7 @@
-﻿using Assets.Equipment;
+﻿using Assets.Equipment.Armors;
+using Assets.Equipment.Armors.Leather;
+using Assets.Equipment.Weapons;
+using Assets.Equipment.Weapons.Blunt;
 using Enumerations;
 using System;
 
@@ -8,11 +11,11 @@ namespace Assets.Characters.Spellcasters
     {
         private const string DEFAULT_NAME = "Necro";
         private const int MAX_AGE = 150;
-        private const int MIN_AGE = 50;
+        private new const int MIN_AGE = 50;
 
-        private readonly Weapon DEFAULT_WEAPON = new Staff();
-        private readonly Armor DEFAULT_ARMOR = new LightLeatherVest();
-        public Necromancer(string name = DEFAULT_NAME) : base(name, Faction.BadGuy, DEFAULT_LEVEL)
+        private readonly Staff DEFAULT_WEAPON = new Staff();
+        private readonly LightLeatherVest DEFAULT_ARMOR = new LightLeatherVest(); //is it wrong to use base type?
+        public Necromancer(string name = DEFAULT_NAME) : base(name, Faction.Spellcaster, DEFAULT_LEVEL)
         {
             this.Weapon = DEFAULT_WEAPON;
             this.BodyArmor = DEFAULT_ARMOR;

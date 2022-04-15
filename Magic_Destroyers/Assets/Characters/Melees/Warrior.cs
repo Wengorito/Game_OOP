@@ -1,4 +1,5 @@
-﻿using Assets.Equipment;
+﻿using Assets.Equipment.Armors.Heavy;
+using Assets.Equipment.Weapons.Sharp;
 using Enumerations;
 using System;
 
@@ -9,8 +10,8 @@ namespace Assets.Characters.Melees
         private const string DEFAULT_NAME = "Barb";
         private const int MAX_AGE = 30;
 
-        private readonly Weapon DEFAULT_WEAPON = new Axe();
-        private readonly Armor DEFAULT_ARMOR = new Chainlink();
+        private readonly Axe DEFAULT_WEAPON = new Axe();
+        private readonly Chainlink DEFAULT_ARMOR = new Chainlink();
 
         public override int Age 
         { 
@@ -49,7 +50,7 @@ namespace Assets.Characters.Melees
         {
 
         }
-        public Warrior(string name) : this(name, Faction.GoodGuy)
+        public Warrior(string name) : this(name, Faction.Melee)
         {
             base.Greet(this);
             Greet(this);

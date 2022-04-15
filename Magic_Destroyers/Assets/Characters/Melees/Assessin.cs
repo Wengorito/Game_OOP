@@ -1,4 +1,7 @@
-﻿using Assets.Equipment;
+﻿using Assets.Equipment.Armors;
+using Assets.Equipment.Armors.Leather;
+using Assets.Equipment.Weapons;
+using Assets.Equipment.Weapons.Sharp;
 using Enumerations;
 
 namespace Assets.Characters.Melees
@@ -7,14 +10,14 @@ namespace Assets.Characters.Melees
     {
         private const string DEFAULT_NAME = "Ass";
 
-        private readonly Weapon DEFAULT_WEAPON_ASSESSIN = new Sword();
-        private readonly Armor DEFAULT_ARMOR_ASSESSIN = new LightLeatherVest();
+        private readonly Sword DEFAULT_WEAPON_ASSESSIN = new Sword();
+        private readonly LightLeatherVest DEFAULT_ARMOR_ASSESSIN = new LightLeatherVest();
 
         public Assessin() : this(DEFAULT_NAME)
         {
 
         }
-        public Assessin(string name) : this(name, Faction.BadGuy)
+        public Assessin(string name) : this(name, Faction.Melee)
         {
 
         }
