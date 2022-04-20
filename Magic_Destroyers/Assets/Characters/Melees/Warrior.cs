@@ -26,26 +26,7 @@ namespace Assets.Characters.Melees
             }
         }
 
-        //abilities
-        public void Strike()
-        {
-            throw new NotImplementedException();
-        }
-        public void Execute()
-        {
-
-        }
-        public void SkinHarden()
-        {
-
-        }
-        public new void Greet(Character character)
-        {
-            Console.WriteLine($"Elo {character.Name}, child member");
-        }
-
         //ctors
-
         public Warrior() : this(DEFAULT_NAME)
         {
 
@@ -69,6 +50,10 @@ namespace Assets.Characters.Melees
         }
 
         //methods
+        public override void Greet(Character character)
+        {
+            Console.WriteLine($"Elo {character.Name}, child member");
+        }
         public void SpecialWarriorGreeting()
         {
             Console.WriteLine("I is a Warrior!");
@@ -80,16 +65,32 @@ namespace Assets.Characters.Melees
             Console.WriteLine("I just moved 10 times, I am a Warrior");
         }
 
+        public void Strike()
+        {
+            throw new NotImplementedException();
+        }
+        public void Execute()
+        {
+            Console.WriteLine("You have been executed");
+        }
+        public void SkinHarden()
+        {
+
+        }
+
         public override void Attack()
         {
+            Strike();
         }
 
         public override void SpecialAttack()
         {
+            Execute();
         }
 
         public override void Defend()
         {
+            SkinHarden();
         }
     }
 

@@ -52,17 +52,17 @@ namespace Assets.Characters.Spellcasters
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            ArcaneWrath();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            Firewall();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            Meditation();
         }
     }
 }
