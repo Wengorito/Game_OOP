@@ -5,9 +5,6 @@ namespace Assets.Characters.Melees
 {
     public abstract class Melee : Character
     {
-        private const int DEFAULT_HEALTHPOINTS = 200;
-        private const int MAX_AGE = 60;
-
         private int _staminaPoints;
         public int StaminaPoints
         {
@@ -21,16 +18,16 @@ namespace Assets.Characters.Melees
 
             set
             {
-                if (value < MAX_AGE)
+                if (value < Consts.Melee.MAX_AGE)
                     base._age = value;
                 else
-                    throw new ArgumentNullException(string.Empty, $"Melee characters age must be between {MIN_AGE} and {MAX_AGE}");
+                    throw new ArgumentNullException(string.Empty, $"Melee characters age must be between {Consts.MIN_AGE} and {Consts.Melee.MAX_AGE}");
             }
         }
 
         public Melee(string name, Faction faction, int level) : base(name, faction, level)
         {
-            HealthPoints = DEFAULT_HEALTHPOINTS;            
+            HealthPoints = Consts.Melee.HEALTHPOINTS;            
         }
     }
 }

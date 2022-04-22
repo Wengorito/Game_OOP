@@ -8,13 +8,9 @@ namespace Assets.Characters.Spellcasters
 {
     class Mage : Spellcaster
     {
-        private const string DEFAULT_NAME = "Sorc";
-        private const int MAX_AGE = 100;
-        private new const int MIN_AGE = 40;
-
         private readonly Weapon DEFAULT_WEAPON = new Staff();
         private readonly ClothRobe DEFAULT_ARMOR = new ClothRobe();
-        public Mage (string name = DEFAULT_NAME) : base(name, Faction.Spellcaster, DEFAULT_LEVEL)
+        public Mage (string name = Consts.Mage.NAME) : base(name, Faction.Spellcaster, Consts.LEVEL)
         {
             this.Weapon = DEFAULT_WEAPON;
             this.BodyArmor = DEFAULT_ARMOR;
@@ -26,43 +22,43 @@ namespace Assets.Characters.Spellcasters
 
             set
             {
-                if (value > MIN_AGE && value < MAX_AGE)
+                if (value > Consts.Mage.MIN_AGE && value < Consts.Mage.MAX_AGE)
                     base._age = value;
                 else
-                    throw new ArgumentNullException(string.Empty, $"Mage's age must be between {MIN_AGE} and {MAX_AGE}");
+                    throw new ArgumentNullException(string.Empty, $"Mage's age must be between {Consts.Mage.MIN_AGE} and {Consts.Mage.MAX_AGE}");
             }
         }
 
-        public void ArcaneWrath()
+        public int ArcaneWrath()
         {
-
+            return Weapon.DamagePoints + 10;
         }
-        public void Firewall()
+        public int Firewall()
         {
-
+            return Weapon.DamagePoints + 20;
         }
-        public void Meditation()
+        public int Meditation()
         {
-
+            return BodyArmor.ArmorPoints + 5;
         }
         public void Curse(Character character)
         {
             Console.WriteLine($"Damn you, {character.Name}!");
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            ArcaneWrath();
+            return this.ArcaneWrath();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            Firewall();
+            return Firewall();
         }
 
-        public override void Defend()
+        public override int Defend()
         {
-            Meditation();
+            return Meditation();
         }
     }
 }

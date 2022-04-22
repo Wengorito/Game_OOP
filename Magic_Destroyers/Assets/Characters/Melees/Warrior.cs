@@ -7,9 +7,6 @@ namespace Assets.Characters.Melees
 {
     public class Warrior : Melee
     {
-        private const string DEFAULT_NAME = "Barb";
-        private const int MAX_AGE = 30;
-
         private readonly Axe DEFAULT_WEAPON = new Axe();
         private readonly Chainlink DEFAULT_ARMOR = new Chainlink();
 
@@ -19,15 +16,15 @@ namespace Assets.Characters.Melees
 
             set
             {
-                if (value < MAX_AGE)
+                if (value < Consts.Warrior.MAX_AGE)
                     base._age = value;
                 else
-                    throw new ArgumentNullException(string.Empty, $"Warrior's age must be between {MIN_AGE} and {MAX_AGE}");
+                    throw new ArgumentNullException(string.Empty, $"Warrior's age must be between {Consts.MIN_AGE} and {Consts.Warrior.MAX_AGE}");
             }
         }
 
         //ctors
-        public Warrior() : this(DEFAULT_NAME)
+        public Warrior() : this(Consts.Warrior.NAME)
         {
 
         }
@@ -38,7 +35,7 @@ namespace Assets.Characters.Melees
         }
 
         public Warrior(string name, Faction faction) 
-            : this(name, faction, DEFAULT_LEVEL)
+            : this(name, faction, Consts.LEVEL)
         {
         }
 
@@ -65,32 +62,32 @@ namespace Assets.Characters.Melees
             Console.WriteLine("I just moved 10 times, I am a Warrior");
         }
 
-        public void Strike()
+        public int Strike()
         {
-            throw new NotImplementedException();
+            return base.Weapon.DamagePoints + 10;
         }
-        public void Execute()
+        public int Execute()
         {
-            Console.WriteLine("You have been executed");
+            return base.Weapon.DamagePoints + 20;
         }
-        public void SkinHarden()
+        public int SkinHarden()
         {
-
-        }
-
-        public override void Attack()
-        {
-            Strike();
+            return BodyArmor.ArmorPoints + 5;
         }
 
-        public override void SpecialAttack()
+        public override int Attack()
         {
-            Execute();
+            return Strike();
         }
 
-        public override void Defend()
+        public override int SpecialAttack()
         {
-            SkinHarden();
+            return Execute();
+        }
+
+        public override int Defend()
+        {
+            return SkinHarden();
         }
     }
 

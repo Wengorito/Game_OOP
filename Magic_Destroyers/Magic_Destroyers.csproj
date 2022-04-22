@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Characters\Character.cs" />
+    <Compile Include="Assets\Characters\Consts.cs" />
     <Compile Include="Assets\Equipment\Armors\Heavy\Chainlink.cs" />
     <Compile Include="Assets\Equipment\Armors\Heavy\Heavy.cs" />
     <Compile Include="Assets\Equipment\Armors\Leather\Leather.cs" />

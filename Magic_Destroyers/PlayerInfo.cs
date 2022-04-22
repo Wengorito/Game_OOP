@@ -2,10 +2,10 @@
 {
     public class PlayerInfo
     {
-        private static string playersInfoDirectory = "";
-        private static string[,] fullInfo;
-        private static int[] scores;
-        private static int[] levels;
+        private static string _playersInfoDirectory = "";
+        private static string[,] _fullInfo;
+        private static int[] _scores;
+        private static int[] _levels;
 
         static PlayerInfo()
         { }

@@ -9,18 +9,15 @@ namespace Assets.Characters
 {
     abstract public class Character : IAttack, IDefend
     {
-        private const int DEFAULT_ABILITYPOINTS = 100;
-
-        protected const int MIN_AGE = 18;
-        protected const int DEFAULT_LEVEL = 1;
-
         private readonly int _id;
 
         private static int _idCounter;
 
+        private bool _isAlive = true;
         private string _name;
         private int _abilityPoints;
-        private int _healthPoins;
+        private int _healthPoints;
+        //private int _scores;
         private int _level;
         protected int _age;
         private Faction _faction;
@@ -30,6 +27,12 @@ namespace Assets.Characters
         public int Id
         {
             get { return _id; }
+        }
+
+        public bool IsAlive 
+        {
+            get { return _isAlive; }
+            private set { _isAlive = value; }
         }
 
         public string Name
@@ -61,18 +64,19 @@ namespace Assets.Characters
         }
         public int HealthPoints 
         {
-            get { return _healthPoins; } 
+            get { return _healthPoints; } 
             set
             {
-                //_healthPoins = value > 0 ? value : 0;
+                //_healthPoints = value > 0 ? value : 0;
                 if (value >= 0)
-                    _healthPoins = value;
+                    _healthPoints = value;
                 else
                 {
                     throw new ArgumentOutOfRangeException(string.Empty, "Health Points cannot be negative");
                 }
             }
         }
+        public int Scores { get; set; } = 0;//not necessary since its zero by default
         public int Level 
         { 
             get { return _level; }
@@ -83,10 +87,10 @@ namespace Assets.Characters
             get { return _age; }
             set 
             {
-                if (value >= MIN_AGE)
+                if (value >= Consts.MIN_AGE)
                     _age = value;
                 else
-                    throw new ArgumentOutOfRangeException(string.Empty, $"Character's age must be greater than {MIN_AGE}");
+                    throw new ArgumentOutOfRangeException(string.Empty, $"Character's age must be greater than {Consts.MIN_AGE}");
             }
         }
         public Armor BodyArmor
@@ -110,7 +114,7 @@ namespace Assets.Characters
             _id = _idCounter;
             _faction = faction;
             _level = level;
-            _abilityPoints = DEFAULT_ABILITYPOINTS;
+            _abilityPoints = Consts.ABILITYPOINTS;
 
             Name = name;
             Greet(this);
@@ -131,8 +135,44 @@ namespace Assets.Characters
             }
         }
 
-        public abstract void Attack();
-        public abstract void SpecialAttack();
-        public abstract void Defend();
+        public abstract int Attack();
+        public abstract int SpecialAttack();
+        public abstract int Defend();
+
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if (this.Defend() < damage)
+            {
+                _healthPoints -= damage - this.Defend();
+
+                if(_healthPoints <= 0)
+                {
+                    _isAlive = false;                    
+                }
+            }
+            else
+            {
+                Console.WriteLine("Haha! You cannot harm me!");
+            }
+
+            if(!this._isAlive)
+            {
+                Console.WriteLine($"{this.Name} received {damage - Defend()} damage from {attackerName}, and is now dead!");
+            }
+            else
+            {
+                Console.WriteLine($"{this.Name} received {damage - Defend()} damage from {attackerName}, and is still alive!");
+            }
+        }
+
+        public void WonBattle()
+        {
+            Scores++;
+
+            if(Scores % 10 == 0)
+            {
+                Level++;
+            }
+        }
     }
 }

@@ -8,8 +8,8 @@ namespace Assets.Characters.Spellcasters
 {
     abstract class Spellcaster : Character, ISpellcaster
     {
-        private const int DEFAULT_HEALTHPOINTS = 100;
-        protected new const int MIN_AGE = 30;
+        //private const int DEFAULT_HEALTHPOINTS = 100;
+        //protected new const int MIN_AGE = 30;
 
         public override int Age
         {
@@ -17,10 +17,10 @@ namespace Assets.Characters.Spellcasters
 
             set
             {
-                if (value > MIN_AGE)
+                if (value > Consts.Spellcaster.MIN_AGE)
                     base._age = value;
                 else
-                    throw new ArgumentNullException(string.Empty, $"Spellcaster's age must be greater than {MIN_AGE}");
+                    throw new ArgumentNullException(string.Empty, $"Spellcaster's age must be greater than {Consts.Spellcaster.MIN_AGE}");
             }
         }
 
@@ -37,7 +37,7 @@ namespace Assets.Characters.Spellcasters
 
         public Spellcaster(string name, Faction faction, int level) : base(name, faction, level)
         {
-            base.HealthPoints = DEFAULT_HEALTHPOINTS;
+            base.HealthPoints = Consts.Spellcaster.HEALTHPOINTS;
         }
 
         public void CastSpell(Melee character)
